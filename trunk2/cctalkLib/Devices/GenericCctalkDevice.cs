@@ -38,7 +38,7 @@ namespace dk.CctalkLib.Devices
 			  		{9, new TimeSpan(365, 0, 0, 0, 0)},//years
 			  	};
 
-		static readonly Dictionary<String, CctalkDeviceTypes> DeviceTypes
+	    public static readonly Dictionary<String, CctalkDeviceTypes> DeviceTypes
 			= new Dictionary<String, CctalkDeviceTypes>
 			  	{
 			  		{"Coin Acceptor", CctalkDeviceTypes.CoinAcceptor},

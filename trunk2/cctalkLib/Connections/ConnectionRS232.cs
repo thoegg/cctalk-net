@@ -260,7 +260,7 @@ namespace dk.CctalkLib.Connections
 
 			}
 		}
-
+        
 		#endregion
 
 	}

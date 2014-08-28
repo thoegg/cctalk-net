@@ -1,26 +1,28 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace dk.CctalkLib.Checksumms
 {
     public class Checksum : ICctalkChecksum
     {
-        private static byte ChecksumHelper(byte[] source)
+        private static byte ChecksumHelper(IEnumerable<byte> source)
         {
             long sum = 0L;
             byte div = 0;
 
             foreach (byte t in source)
             {
-            	sum += t;
+                sum += t;
             }
 
-        	while (sum > 255)
+            while (sum > 255)
             {
                 sum -= 256;
             }
             if (sum == 0) sum = 256;
 
-            div = (byte) (256 - sum);
+            div = (byte)(256 - sum);
             return div;
         }
 
@@ -44,7 +46,7 @@ namespace dk.CctalkLib.Checksumms
 			var cpy = new Byte[length];
 			Array.Copy(messageInBytes, offset, cpy, 0, length);
 			var res = ChecksumHelper(cpy);
-			return res == 0;
+		    return res == 0;
 		}
 
     	#endregion
